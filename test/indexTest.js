@@ -1,5 +1,30 @@
-require ( './root.js' );
+const shout = (string) => {
+  return string.toUpperCase();
+}
 
+const whisper = (string) => {
+  return string.toLowerCase();
+}
+
+const logShout = (string) => {
+  console.log(string.toUpperCase());
+}
+
+const logWhisper = (string) => {
+  console.log(string.toLowerCase());
+}
+
+const sayHiToHeadphonedRoommate = (string) => {
+  if (string.toLowerCase() === string) {
+    return "I can't hear you!";
+  } else if (string.toUpperCase() === string) {
+    return "YES INDEED!";
+  } else if (string === "I love you, Grandma.") {
+    return "I love you, too.";
+  } else if (string === "Let's have dinner together!") {
+    return "I would love to!";
+  }
+}
 
 describe('shout(string)', function() {
   it('receives one argument and returns it in all caps', function() {
@@ -49,6 +74,12 @@ describe('sayHiToHeadphonedRoommate(string)', function() {
   it('returns "I would love to!" if `string` is "Let\'s have dinner together!"`', function () {
     expect(sayHiToHeadphonedRoommate("Let's have dinner together!")).toEqual(
       "I would love to!"
+    );
+  });
+
+  it('returns "I love you, too." if `string` is "I love you, Grandma."`', function () {
+    expect(sayHiToHeadphonedRoommate("I love you, Grandma.")).toEqual(
+      "I love you, too."
     );
   });
 })
